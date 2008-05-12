@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<gapi-parser-input>
+  <api filename="webkit-sharp-api.raw">
+    <library name="webkit-1.0">
+      <namespace name="WebKit">
+        <!--<dir>/usr/include/webkit-1.0/webkit</dir>-->
+        <dir>webkit-1.0/webkit</dir>
+      </namespace>
+    </library>
+  </api>
+</gapi-parser-input>

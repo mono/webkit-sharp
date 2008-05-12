@@ -1,0 +1,9 @@
+prefix=@prefix@
+exec_prefix=
+libdir=/lib
+
+Name: @ASSEMBLY_TITLE@
+Description: @ASSEMBLY_DESCRIPTION@
+Version: @VERSION@
+Requires: gtk-sharp-2.0
+Libs: -r:/lib/mono/@ASSEMBLY_NAME@/@ASSEMBLY_NAME@.dll

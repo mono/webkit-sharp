@@ -1,0 +1,3 @@
+<configuration>
+  <dllmap dll="monoskel" target="monoskel@LIB_PREFIX@.1@LIB_SUFFIX@"/>
+</configuration>
