@@ -1,0 +1,28 @@
+<Type Name="WebViewTargetInfo" FullName="WebKit.WebViewTargetInfo">
+  <TypeSignature Language="C#" Value="public enum WebViewTargetInfo" />
+  <AssemblyInfo>
+    <AssemblyName>webkit-sharp</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    <Member MemberName="Html">
+      <MemberSignature Language="C#" Value="Html" />
+      <MemberType>Field</MemberType>
+      <ReturnValue><ReturnType>WebKit.WebViewTargetInfo</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="Text">
+      <MemberSignature Language="C#" Value="Text" />
+      <MemberType>Field</MemberType>
+      <ReturnValue><ReturnType>WebKit.WebViewTargetInfo</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member>
+  </Members>
+</Type>

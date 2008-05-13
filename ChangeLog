@@ -1,1 +1,20 @@
+2008-05-12  Everaldo Canuto  <ecanuto@novell.com>
 
+	* sources/webkit-sharp.dll.config.in: Dll map added to webkit.
+
+	* doc/en: English documentation added.
+
+	* webkit-sharp.spec.in: Spec file added for easy rpm creation.
+
+	* configure.in:
+		- Fixed GACUTIL_FLAGS.
+		- Update release to 0.2.
+		- Spec file added.
+	
+	* samples/FunnyBrowser.cs: Sample browser improved.
+
+	* COPYING: License changed to MIT X11.
+
+2008-05-11  Everaldo Canuto  <ecanuto@novell.com>
+
+	* Initial import based on monoskel-gapi.

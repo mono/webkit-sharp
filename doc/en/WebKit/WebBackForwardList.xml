@@ -1,0 +1,127 @@
+<Type Name="WebBackForwardList" FullName="WebKit.WebBackForwardList">
+  <TypeSignature Language="C#" Value="public class WebBackForwardList : GLib.Object" />
+  <AssemblyInfo>
+    <AssemblyName>webkit-sharp</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>GLib.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected WebBackForwardList (GLib.GType gtype);" />
+      <MemberType>Constructor</MemberType>
+      <Attributes><Attribute><AttributeName>System.Obsolete</AttributeName></Attribute></Attributes>
+      <Parameters><Parameter Name="gtype" Type="GLib.GType" /></Parameters>
+      <Docs><param name="gtype">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public WebBackForwardList (IntPtr raw);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters><Parameter Name="raw" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="raw">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public WebBackForwardList (WebKit.WebView web_view);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters><Parameter Name="web_view" Type="WebKit.WebView" /></Parameters>
+      <Docs><param name="web_view">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="BackItem">
+      <MemberSignature Language="C#" Value="public WebKit.WebHistoryItem BackItem { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>WebKit.WebHistoryItem</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="BackLength">
+      <MemberSignature Language="C#" Value="public int BackLength { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ContainsItem">
+      <MemberSignature Language="C#" Value="public bool ContainsItem (WebKit.WebHistoryItem history_item);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="history_item" Type="WebKit.WebHistoryItem" /></Parameters>
+      <Docs><param name="history_item">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="CurrentItem">
+      <MemberSignature Language="C#" Value="public WebKit.WebHistoryItem CurrentItem { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>WebKit.WebHistoryItem</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ForwardItem">
+      <MemberSignature Language="C#" Value="public WebKit.WebHistoryItem ForwardItem { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>WebKit.WebHistoryItem</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ForwardLength">
+      <MemberSignature Language="C#" Value="public int ForwardLength { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetBackListWithLimit">
+      <MemberSignature Language="C#" Value="public GLib.List GetBackListWithLimit (int limit);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>GLib.List</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="limit" Type="System.Int32" /></Parameters>
+      <Docs><param name="limit">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetForwardListWithLimit">
+      <MemberSignature Language="C#" Value="public GLib.List GetForwardListWithLimit (int limit);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>GLib.List</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="limit" Type="System.Int32" /></Parameters>
+      <Docs><param name="limit">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetNthItem">
+      <MemberSignature Language="C#" Value="public WebKit.WebHistoryItem GetNthItem (int index);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>WebKit.WebHistoryItem</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="index" Type="System.Int32" /></Parameters>
+      <Docs><param name="index">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GoBack">
+      <MemberSignature Language="C#" Value="public void GoBack ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GoForward">
+      <MemberSignature Language="C#" Value="public void GoForward ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GoToItem">
+      <MemberSignature Language="C#" Value="public void GoToItem (WebKit.WebHistoryItem history_item);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="history_item" Type="WebKit.WebHistoryItem" /></Parameters>
+      <Docs><param name="history_item">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GType">
+      <MemberSignature Language="C#" Value="public static GLib.GType GType { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>GLib.GType</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Limit">
+      <MemberSignature Language="C#" Value="public int Limit { set; get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

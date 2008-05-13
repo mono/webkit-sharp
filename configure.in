@@ -1,6 +1,6 @@
 AC_INIT(README)
 AC_CANONICAL_SYSTEM
-AM_INIT_AUTOMAKE(webkit-sharp, 0.1)
+AM_INIT_AUTOMAKE(webkit-sharp, 0.2)
 AM_MAINTAINER_MODE
 AC_PROG_INSTALL
 
@@ -73,7 +73,7 @@ if test "x$GACUTIL" = "xno" ; then
 	AC_MSG_ERROR([No gacutil tool found])
 fi
 
-GACUTIL_FLAGS='/package $ASSEMBLY_NAME /root $(DESTDIR)$(prefix)/lib'
+GACUTIL_FLAGS="/package $ASSEMBLY_NAME /root "'$(DESTDIR)$(prefix)/lib'
                                      
 AC_SUBST(RUNTIME)
 AC_SUBST(CSC)
@@ -149,6 +149,7 @@ AM_CONDITIONAL(ENABLE_MONODOC, test "x$enable_monodoc" = "xyes")
 
 AC_OUTPUT([
 Makefile
+	$ASSEMBLY_NAME.spec
 	doc/Makefile
 	samples/Makefile
 	sources/Makefile

@@ -1,0 +1,276 @@
+<Type Name="WebView" FullName="WebKit.WebView">
+  <TypeSignature Language="C#" Value="public class WebView : Gtk.Container" />
+  <AssemblyInfo>
+    <AssemblyName>webkit-sharp</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Gtk.Container</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public WebView ();" />
+      <MemberType>Constructor</MemberType>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected WebView (GLib.GType gtype);" />
+      <MemberType>Constructor</MemberType>
+      <Attributes><Attribute><AttributeName>System.Obsolete</AttributeName></Attribute></Attributes>
+      <Parameters><Parameter Name="gtype" Type="GLib.GType" /></Parameters>
+      <Docs><param name="gtype">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public WebView (IntPtr raw);" />
+      <MemberType>Constructor</MemberType>
+      <Parameters><Parameter Name="raw" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="raw">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="BackForwardList">
+      <MemberSignature Language="C#" Value="public WebKit.WebBackForwardList BackForwardList { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>WebKit.WebBackForwardList</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="CanCopyClipboard">
+      <MemberSignature Language="C#" Value="public bool CanCopyClipboard ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="CanCutClipboard">
+      <MemberSignature Language="C#" Value="public bool CanCutClipboard ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="CanGoBack">
+      <MemberSignature Language="C#" Value="public bool CanGoBack ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="CanGoBackOrForward">
+      <MemberSignature Language="C#" Value="public bool CanGoBackOrForward (int steps);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="steps" Type="System.Int32" /></Parameters>
+      <Docs><param name="steps">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="CanGoForward">
+      <MemberSignature Language="C#" Value="public bool CanGoForward ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="CanPasteClipboard">
+      <MemberSignature Language="C#" Value="public bool CanPasteClipboard ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="CopyClipboard">
+      <MemberSignature Language="C#" Value="public void CopyClipboard ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="CopyTargetList">
+      <MemberSignature Language="C#" Value="public Gtk.TargetList CopyTargetList { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>Gtk.TargetList</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="CutClipboard">
+      <MemberSignature Language="C#" Value="public void CutClipboard ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="DeleteSelection">
+      <MemberSignature Language="C#" Value="public void DeleteSelection ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Editable">
+      <MemberSignature Language="C#" Value="public bool Editable { set; get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ExecuteScript">
+      <MemberSignature Language="C#" Value="public void ExecuteScript (string script);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="script" Type="System.String" /></Parameters>
+      <Docs><param name="script">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FocusedFrame">
+      <MemberSignature Language="C#" Value="public WebKit.WebFrame FocusedFrame { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>WebKit.WebFrame</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GoBack">
+      <MemberSignature Language="C#" Value="public void GoBack ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GoBackOrForward">
+      <MemberSignature Language="C#" Value="public void GoBackOrForward (int steps);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="steps" Type="System.Int32" /></Parameters>
+      <Docs><param name="steps">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GoForward">
+      <MemberSignature Language="C#" Value="public void GoForward ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GoToBackForwardItem">
+      <MemberSignature Language="C#" Value="public bool GoToBackForwardItem (WebKit.WebHistoryItem item);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="item" Type="WebKit.WebHistoryItem" /></Parameters>
+      <Docs><param name="item">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GType">
+      <MemberSignature Language="C#" Value="public static GLib.GType GType { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>GLib.GType</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="HasSelection">
+      <MemberSignature Language="C#" Value="public bool HasSelection { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="HighlightTextMatches">
+      <MemberSignature Language="C#" Value="public bool HighlightTextMatches { set; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="LoadHtmlString">
+      <MemberSignature Language="C#" Value="public void LoadHtmlString (string content, string base_uri);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="content" Type="System.String" /><Parameter Name="base_uri" Type="System.String" /></Parameters>
+      <Docs><param name="content">To be added.</param><param name="base_uri">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="LoadString">
+      <MemberSignature Language="C#" Value="public void LoadString (string content, string content_mime_type, string content_encoding, string base_uri);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="content" Type="System.String" /><Parameter Name="content_mime_type" Type="System.String" /><Parameter Name="content_encoding" Type="System.String" /><Parameter Name="base_uri" Type="System.String" /></Parameters>
+      <Docs><param name="content">To be added.</param><param name="content_mime_type">To be added.</param><param name="content_encoding">To be added.</param><param name="base_uri">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="MainFrame">
+      <MemberSignature Language="C#" Value="public WebKit.WebFrame MainFrame { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>WebKit.WebFrame</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="MaintainsBackForwardList">
+      <MemberSignature Language="C#" Value="public bool MaintainsBackForwardList { set; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="MarkTextMatches">
+      <MemberSignature Language="C#" Value="public uint MarkTextMatches (string str1ng, bool case_sensitive, uint limit);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="str1ng" Type="System.String" /><Parameter Name="case_sensitive" Type="System.Boolean" /><Parameter Name="limit" Type="System.UInt32" /></Parameters>
+      <Docs><param name="str1ng">To be added.</param><param name="case_sensitive">To be added.</param><param name="limit">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Open">
+      <MemberSignature Language="C#" Value="public void Open (string uri);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="uri" Type="System.String" /></Parameters>
+      <Docs><param name="uri">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="PasteClipboard">
+      <MemberSignature Language="C#" Value="public void PasteClipboard ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="PasteTargetList">
+      <MemberSignature Language="C#" Value="public Gtk.TargetList PasteTargetList { get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>Gtk.TargetList</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Reload">
+      <MemberSignature Language="C#" Value="public void Reload ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SearchText">
+      <MemberSignature Language="C#" Value="public bool SearchText (string str1ng, bool case_sensitive, bool forward, bool wrap);" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="str1ng" Type="System.String" /><Parameter Name="case_sensitive" Type="System.Boolean" /><Parameter Name="forward" Type="System.Boolean" /><Parameter Name="wrap" Type="System.Boolean" /></Parameters>
+      <Docs><param name="str1ng">To be added.</param><param name="case_sensitive">To be added.</param><param name="forward">To be added.</param><param name="wrap">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SelectAll">
+      <MemberSignature Language="C#" Value="public void SelectAll ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Settings">
+      <MemberSignature Language="C#" Value="public WebKit.WebSettings Settings { set; get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>WebKit.WebSettings</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="StopLoading">
+      <MemberSignature Language="C#" Value="public void StopLoading ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Transparent">
+      <MemberSignature Language="C#" Value="public bool Transparent { set; get; };" />
+      <MemberType>Property</MemberType>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="UnmarkTextMatches">
+      <MemberSignature Language="C#" Value="public void UnmarkTextMatches ();" />
+      <MemberType>Method</MemberType>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

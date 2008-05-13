@@ -1,0 +1,38 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="webkit-sharp" Version="1.0.0.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyCopyright("2008 Novell, Inc.")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyCompany("Novell, Inc.")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyDescription("WebKit bindings for Mono")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyTitle("WebKit#")</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="GtkSharp.WebkitSharp">
+      <Type Name="ObjectManager" />
+    </Namespace>
+    <Namespace Name="WebKit">
+      <Type Name="NavigationResponse" />
+      <Type Name="NetworkRequest" />
+      <Type Name="WebBackForwardList" />
+      <Type Name="WebFrame" />
+      <Type Name="WebHistoryItem" />
+      <Type Name="WebSettings" />
+      <Type Name="WebView" />
+      <Type Name="WebViewTargetInfo" />
+    </Namespace>
+  </Types>
+  <Title>webkit-sharp</Title>
+</Overview>

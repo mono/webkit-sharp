@@ -1,8 +1,36 @@
+//
+// WebKit# - WebKit bindings for Mono
+//
+// Author: 
+//   Everaldo Canuto <ecanuto@novell.com>
+//
+// Copyright (c) 2008 Novell, Inc. All rights reserved.
+//
+// Permission is hereby granted, free of charge, to any person obtaining
+// a copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to
+// permit persons to whom the Software is furnished to do so, subject to
+// the following conditions:
+// 
+// The above copyright notice and this permission notice shall be
+// included in all copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+// LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+// OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+
+
 using System;
 using Gtk;
 using GtkSharp;
 using WebKit;
-
 
 namespace FunnyBrowser
 {
@@ -21,6 +49,8 @@ namespace FunnyBrowser
 
 	public class MainWindow: Gtk.Window
 	{
+		const string APP_NAME = "FunnyBrowser";
+
 		private string url = "http://www.google.com/";
 		private Toolbar toolbar = null;
 		private WebKit.WebView webview = null;
@@ -31,14 +61,15 @@ namespace FunnyBrowser
 			if (url != "")
 				this.url = url;
 
-			InitializeControls ();
+			InitializeWidgets ();
 			webview.Open (this.url);
 		}
 		
-		private void InitializeControls ()
+		private void InitializeWidgets ()
 		{
-			SetDefaultSize (700, 500);
-			DeleteEvent += new DeleteEventHandler (OnDeleteEvent);
+			this.Title = "";
+			this.SetDefaultSize (700, 500);
+			this.DeleteEvent += new DeleteEventHandler (OnDeleteEvent);
 
 			Gtk.VBox vbox = new VBox (false, 1);
 
@@ -61,6 +92,16 @@ namespace FunnyBrowser
 			this.Add (vbox);
 			this.ShowAll ();
 		}
+
+		/*public string Caption
+		{
+			get { return base.Title; }
+			set {
+				string fmt_str = (value != "") ? "{1} - {0}" : "{0}";
+				
+				base.Title = String.Format (fmt_str, APP_NAME, value);
+			}
+		}*/
 	
 		protected void OnDeleteEvent (object sender, DeleteEventArgs a)
 		{

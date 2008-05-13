@@ -1,0 +1,34 @@
+<Type Name="NavigationResponse" FullName="WebKit.NavigationResponse">
+  <TypeSignature Language="C#" Value="public enum NavigationResponse" />
+  <AssemblyInfo>
+    <AssemblyName>webkit-sharp</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    <Member MemberName="Accept">
+      <MemberSignature Language="C#" Value="Accept" />
+      <MemberType>Field</MemberType>
+      <ReturnValue><ReturnType>WebKit.NavigationResponse</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="Download">
+      <MemberSignature Language="C#" Value="Download" />
+      <MemberType>Field</MemberType>
+      <ReturnValue><ReturnType>WebKit.NavigationResponse</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="Ignore">
+      <MemberSignature Language="C#" Value="Ignore" />
+      <MemberType>Field</MemberType>
+      <ReturnValue><ReturnType>WebKit.NavigationResponse</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member>
+  </Members>
+</Type>

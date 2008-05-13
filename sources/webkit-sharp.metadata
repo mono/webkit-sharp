@@ -1,3 +1,14 @@
 <?xml version="1.0"?>
 <metadata>
+
+	<!-- Add missing events in WebView -->
+	<add-node path="/api/namespace/object[@cname='WebKitWebView']">
+      <signal name="TitleChanged" cname="title-changed" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="WebKitWebView*" name="webview" />
+        </parameters>
+      </signal>
+	</add-node>
+
 </metadata>
