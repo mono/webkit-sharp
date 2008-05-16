@@ -1,3 +1,9 @@
+2008-05-16  Everaldo Canuto  <ecanuto@novell.com>
+
+	* sources/webkit-sharp.metadata: Add NavigationRequested signal (thanks to
+	Paul Burton) and fix WindowObjectCleared signal parameter types. Also added
+	Uri property to NetworkRequest.
+
 2008-05-16  Andreia Gaita  <avidigal@novell.com>
 
 	* configure.in: Use new AC_CONFIG_FILES instead of the deprecated

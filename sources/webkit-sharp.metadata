@@ -2,8 +2,13 @@
 <!-- TODO: navigation-requested -->
 <metadata>
 
-	<add-node path="/api/namespace/object[@cname='WebKitWebFrame']">
+	<add-node path="/api/namespace/object[@cname='WebKitNetworkRequest']">
+      <method name="GetUri" cname="webkit_network_request_get_uri">
+        <return-type type="const-gchar*" />
+      </method>
+	</add-node>
 
+	<add-node path="/api/namespace/object[@cname='WebKitWebFrame']">
       <method name="GetName" cname="webkit_web_frame_get_name">
         <return-type type="const-gchar*" />
       </method>
@@ -13,12 +18,19 @@
       <method name="GetUri" cname="webkit_web_frame_get_uri">
         <return-type type="const-gchar*" />
       </method>
-
 	</add-node>
-
 
 	<!-- Add missing signal in WebView -->
 	<add-node path="/api/namespace/object[@cname='WebKitWebView']">
+
+		<signal name="NavigationRequested" cname="navigation-requested" when="LAST">
+			<return-type type="void" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+				<parameter type="WebKitWebFrame*" name="frame" />
+				<parameter type="WebKitNetworkRequest" name="request" />
+			</parameters>
+		</signal>
 
 		<signal name="WindowObjectCleared" cname="window-object-cleared" when="LAST">
 			<return-type type="void" />
@@ -146,7 +158,7 @@
 				<parameter type="WebKitWebFrame*" name="frame" />
 				<parameter type="const-gchar*" name="message" />
 				<parameter type="const-gchar*" name="default_value" />
-				<parameter type="gpointer" name="text" /> <!-- TODO: check the right type -->
+				<parameter type="gchar**" name="text" />
 			</parameters>
 		</signal>
 
