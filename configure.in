@@ -147,8 +147,8 @@ AC_SUBST(MONODOCER)
 
 AM_CONDITIONAL(ENABLE_MONODOC, test "x$enable_monodoc" = "xyes")
 
-AC_OUTPUT([
-Makefile
+AC_CONFIG_FILES([
+	Makefile
 	$ASSEMBLY_NAME.spec
 	doc/Makefile
 	samples/Makefile
@@ -157,6 +157,8 @@ Makefile
 	sources/$ASSEMBLY_NAME.pc
 	sources/$ASSEMBLY_NAME.dll.config
 ])
+AC_CONFIG_COMMANDS([default],[[ echo timestamp > stamp-h ]],[[]])
+AC_OUTPUT
 
 echo ""
 echo "Configuration summary"
