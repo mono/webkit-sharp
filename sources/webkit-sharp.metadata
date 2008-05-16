@@ -24,7 +24,7 @@
 	<add-node path="/api/namespace/object[@cname='WebKitWebView']">
 
 		<signal name="NavigationRequested" cname="navigation-requested" when="LAST">
-			<return-type type="void" />
+			<return-type type="gint" />
 			<parameters>
 				<parameter type="WebKitWebView*" name="webview" />
 				<parameter type="WebKitWebFrame*" name="frame" />

@@ -1,5 +1,10 @@
 2008-05-16  Everaldo Canuto  <ecanuto@novell.com>
 
+	* sources/webkit-sharp.metadata: Fix NavigationRequested signal return type
+	to gint.
+
+2008-05-16  Everaldo Canuto  <ecanuto@novell.com>
+
 	* sources/webkit-sharp.metadata: Add NavigationRequested signal (thanks to
 	Paul Burton) and fix WindowObjectCleared signal parameter types. Also added
 	Uri property to NetworkRequest.
