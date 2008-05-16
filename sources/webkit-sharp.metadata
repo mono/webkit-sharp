@@ -1,14 +1,183 @@
 <?xml version="1.0"?>
+<!-- TODO: navigation-requested -->
 <metadata>
 
-	<!-- Add missing events in WebView -->
+	<add-node path="/api/namespace/object[@cname='WebKitWebFrame']">
+
+      <method name="GetName" cname="webkit_web_frame_get_name">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetTitle" cname="webkit_web_frame_get_title">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetUri" cname="webkit_web_frame_get_uri">
+        <return-type type="const-gchar*" />
+      </method>
+
+	</add-node>
+
+
+	<!-- Add missing signal in WebView -->
 	<add-node path="/api/namespace/object[@cname='WebKitWebView']">
-      <signal name="TitleChanged" cname="title-changed" when="LAST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="WebKitWebView*" name="webview" />
-        </parameters>
-      </signal>
+
+		<signal name="WindowObjectCleared" cname="window-object-cleared" when="LAST">
+			<return-type type="void" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+				<parameter type="WebKitWebFrame*" name="frame" />
+				<parameter type="gpointer" name="context" /> <!-- TODO: check the right type -->
+				<parameter type="gpointer" name="window_object" /> <!-- TODO: check the right type -->
+			</parameters>
+		</signal>
+
+		<signal name="LoadStarted" cname="load-started" when="LAST">
+			<return-type type="void" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+				<parameter type="WebKitWebFrame*" name="frame" />
+			</parameters>
+		</signal>
+
+		<signal name="LoadCommitted" cname="load-committed" when="LAST">
+			<return-type type="void" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+				<parameter type="WebKitWebFrame*" name="frame" />
+			</parameters>
+		</signal>
+
+		<signal name="LoadProgressChanged" cname="load-progress-changed" when="LAST">
+			<return-type type="void" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+				<parameter type="gint" name="progress" />
+			</parameters>
+		</signal>
+
+		<signal name="LoadFinished" cname="load-finished" when="LAST">
+			<return-type type="void" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+				<parameter type="WebKitWebFrame*" name="frame" />
+			</parameters>
+		</signal>
+
+		<signal name="TitleChanged" cname="title-changed" when="LAST">
+			<return-type type="void" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+				<parameter type="WebKitWebFrame*" name="frame" />
+				<parameter type="const-gchar*" name="title" />
+			</parameters>
+		</signal>
+
+		<signal name="HoveringOverLink" cname="hovering-over-link" when="LAST">
+			<return-type type="void" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+				<parameter type="const-gchar*" name="title" />
+				<parameter type="const-gchar*" name="link" />
+			</parameters>
+		</signal>
+
+		<signal name="PopulatePopup" cname="populate-popup" when="LAST">
+			<return-type type="void" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+				<parameter type="GtkMenu" name="menu" />
+			</parameters>
+		</signal>
+
+		<signal name="StatusBarTextChanged" cname="status-bar-text-changed" when="LAST">
+			<return-type type="void" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+				<parameter type="const-gchar*" name="value" />
+			</parameters>
+		</signal>
+
+		<signal name="IconLoaded" cname="icon-loaded" when="LAST">
+			<return-type type="void" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+			</parameters>
+		</signal>
+
+		<signal name="SelectionChanged" cname="selection-changed" when="LAST">
+			<return-type type="void" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+			</parameters>
+		</signal>
+
+		<signal name="ConsoleMessage" cname="console-message" when="LAST">
+			<return-type type="gboolean" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+				<parameter type="const-gchar*" name="message" />
+				<parameter type="gint" name="line" />
+				<parameter type="const-gchar*" name="source_id" />
+			</parameters>
+		</signal>
+
+		<signal name="ScriptAlert" cname="script-alert" when="LAST">
+			<return-type type="gboolean" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+				<parameter type="WebKitWebFrame*" name="frame" />
+				<parameter type="const-gchar*" name="message" />
+			</parameters>
+		</signal>
+
+		<signal name="ScriptConfirm" cname="script-confirm" when="LAST">
+			<return-type type="gboolean" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+				<parameter type="WebKitWebFrame*" name="frame" />
+				<parameter type="const-gchar*" name="message" />
+				<parameter type="gboolean" name="confirmed" />
+			</parameters>
+		</signal>
+
+		<signal name="ScriptPrompt" cname="script-prompt" when="LAST">
+			<return-type type="gboolean" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+				<parameter type="WebKitWebFrame*" name="frame" />
+				<parameter type="const-gchar*" name="message" />
+				<parameter type="const-gchar*" name="default_value" />
+				<parameter type="gpointer" name="text" /> <!-- TODO: check the right type -->
+			</parameters>
+		</signal>
+
+		<!-- TODO: We really need this signals ?
+		
+		<signal name="SelectedAll" cname="select-all" when="LAST">
+			<return-type type="void" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+			</parameters>
+		</signal>
+		<signal name="ClipboardCut" cname="cut-clipboard" when="LAST">
+			<return-type type="void" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+			</parameters>
+		</signal>
+		<signal name="ClipboardCopy" cname="copy-clipboard" when="LAST">
+			<return-type type="void" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+			</parameters>
+		</signal>
+		<signal name="PastedClipboard" cname="paste-clipboard" when="LAST">
+			<return-type type="void" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+			</parameters>
+		</signal>-->
+
 	</add-node>
 
 </metadata>
+

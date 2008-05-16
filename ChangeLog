@@ -1,3 +1,14 @@
+2008-05-16  Everaldo Canuto  <ecanuto@novell.com>
+
+	* sources/Makefile.am: Add carriage return to .h fix routine.
+
+	* sources/webkit-sharp.metadata: Add WebView signals.
+
+	* samples/FunnyBrowser.cs: Improved sample browse:
+	- Add toolbar buttons back, forward, stop and refresh.
+	- Add URI entry to type addresses.
+	- Show links on status bar using mouse over events.
+
 2008-05-12  Everaldo Canuto  <ecanuto@novell.com>
 
 	* sources/webkit-sharp.dll.config.in: Dll map added to webkit.
