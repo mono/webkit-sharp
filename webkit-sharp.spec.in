@@ -37,7 +37,7 @@ rm -rf "$RPM_BUILD_ROOT"
 %{_prefix}/lib/mono/gac/webkit-sharp
 %{_prefix}/lib/mono/webkit-sharp
 %{_prefix}/lib/monodoc/sources/webkit-sharp-docs*
-%{_prefix}/lib/pkgconfig/webkit-sharp.pc
+%{_prefix}/lib/pkgconfig/webkit-sharp-1.0.pc
 
 %changelog
 * Mon May 12 2008 ecanuto@novell.com

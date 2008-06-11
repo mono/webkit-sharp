@@ -13,7 +13,8 @@ ASSEMBLY_TITLE="WebKit#"
 ASSEMBLY_DESCRIPTION="WebKit bindings for Mono"
 ASSEMBLY_COMPANY="Novell, Inc."
 ASSEMBLY_COPYRIGHT="2008 Novell, Inc."
-
+ASSEMBLY_PC=$ASSEMBLY_NAME-1.0
+						 
 AC_SUBST(ASSEMBLY_NAME)
 AC_SUBST(ASSEMBLY_VERSION)
 AC_SUBST(ASSEMBLY_NAMESPACE)
@@ -22,6 +23,7 @@ AC_SUBST(ASSEMBLY_TITLE)
 AC_SUBST(ASSEMBLY_DESCRIPTION)
 AC_SUBST(ASSEMBLY_COMPANY)
 AC_SUBST(ASSEMBLY_COPYRIGHT)
+AC_SUBST(ASSEMBLY_PC)
 
 dnl Check for pkg-config
 AC_PATH_PROG(PKG_CONFIG, pkg-config, no)
@@ -154,7 +156,7 @@ AC_CONFIG_FILES([
 	samples/Makefile
 	sources/Makefile
 	sources/AssemblyInfo.cs
-	sources/$ASSEMBLY_NAME.pc
+	sources/$ASSEMBLY_PC.pc:sources/$ASSEMBLY_NAME.pc.in
 	sources/$ASSEMBLY_NAME.dll.config
 ])
 AC_CONFIG_COMMANDS([default],[[ echo timestamp > stamp-h ]],[[]])

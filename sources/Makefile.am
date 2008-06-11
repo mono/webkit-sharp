@@ -1,6 +1,6 @@
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = $(ASSEMBLY_NAME).pc
+pkgconfig_DATA = $(ASSEMBLY_PC).pc
 
 RAW_API=$(ASSEMBLY_NAME)-api.raw
 API=$(ASSEMBLY_NAME)-api.xml
@@ -16,7 +16,7 @@ customs =
 
 CLEANFILES = $(ASSEMBLY_NAME).dll generated-stamp generated/*.cs $(API)
 
-DISTCLEANFILES= AssemblyInfo.cs $(ASSEMBLY_NAME).pc $(ASSEMBLY_NAME).dll.config
+DISTCLEANFILES= AssemblyInfo.cs $(ASSEMBLY_PC).pc $(ASSEMBLY_NAME).dll.config
 
 noinst_DATA = $(ASSEMBLY_NAME).dll
 

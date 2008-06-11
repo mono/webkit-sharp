@@ -1,3 +1,9 @@
+2008-06-11  Andreia Gaita <avidigal@novell.com> 
+
+	* configure.in, sources/Makefile.am, webkit-sharp.spec.in: Switch .pc
+	  filename to assembly-version.pc convention
+	* sources/webkit-sharp.pc.in: Fix library path
+
 2008-05-20  Everaldo Canuto  <ecanuto@novell.com>
 
 	* sources/webkit-sharp.pc.in: Add prefix to lib and libdir and exec_prefix.
