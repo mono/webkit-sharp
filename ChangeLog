@@ -1,5 +1,9 @@
 2008-06-11  Andreia Gaita <avidigal@novell.com> 
 
+	* configure.in: Version bump
+
+2008-06-11  Andreia Gaita <avidigal@novell.com> 
+
 	* configure.in, sources/Makefile.am, webkit-sharp.spec.in: Switch .pc
 	  filename to assembly-version.pc convention
 	* sources/webkit-sharp.pc.in: Fix library path
