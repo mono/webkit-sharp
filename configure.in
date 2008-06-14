@@ -151,13 +151,13 @@ AM_CONDITIONAL(ENABLE_MONODOC, test "x$enable_monodoc" = "xyes")
 
 AC_CONFIG_FILES([
 	Makefile
-	$ASSEMBLY_NAME.spec
+	webkit-sharp.spec
 	doc/Makefile
 	samples/Makefile
 	sources/Makefile
 	sources/AssemblyInfo.cs
-	sources/$ASSEMBLY_PC.pc:sources/$ASSEMBLY_NAME.pc.in
-	sources/$ASSEMBLY_NAME.dll.config
+	sources/webkit-sharp-1.0.pc:sources/webkit-sharp.pc.in
+	sources/webkit-sharp.dll.config
 ])
 AC_CONFIG_COMMANDS([default],[[ echo timestamp > stamp-h ]],[[]])
 AC_OUTPUT
