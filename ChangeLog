@@ -1,3 +1,7 @@
+2008-06-14  Andreia Gaita <avidigal@novell.com> 
+
+	* configure.in, configure.ac: Switch from deprecated configure.in
+
 2008-06-11  Andreia Gaita <avidigal@novell.com> 
 
 	* configure.in: Version bump
