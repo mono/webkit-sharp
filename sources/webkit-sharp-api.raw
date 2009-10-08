@@ -7,19 +7,130 @@
 
 -->
   <namespace name="WebKit" library="webkit-1.0">
+    <enum name="DownloadError" cname="WebKitDownloadError" type="enum">
+      <member cname="WEBKIT_DOWNLOAD_ERROR_CANCELLED_BY_USER" name="CancelledByUser" />
+      <member cname="WEBKIT_DOWNLOAD_ERROR_DESTINATION" name="Destination" />
+      <member cname="WEBKIT_DOWNLOAD_ERROR_NETWORK" name="Network" />
+    </enum>
+    <enum name="DownloadStatus" cname="WebKitDownloadStatus" type="enum">
+      <member cname="WEBKIT_DOWNLOAD_STATUS_ERROR" name="Error" value="-1" />
+      <member cname="WEBKIT_DOWNLOAD_STATUS_CREATED" name="Created" />
+      <member cname="WEBKIT_DOWNLOAD_STATUS_STARTED" name="Started" />
+      <member cname="WEBKIT_DOWNLOAD_STATUS_CANCELLED" name="Cancelled" />
+      <member cname="WEBKIT_DOWNLOAD_STATUS_FINISHED" name="Finished" />
+    </enum>
+    <enum name="EditingBehavior" cname="WebKitEditingBehavior" type="enum">
+      <member cname="WEBKIT_EDITING_BEHAVIOR_MAC" name="Mac" />
+      <member cname="WEBKIT_EDITING_BEHAVIOR_WINDOWS" name="Windows" />
+    </enum>
+    <enum name="LoadStatus" cname="WebKitLoadStatus" type="enum">
+      <member cname="WEBKIT_LOAD_PROVISIONAL" name="Provisional" />
+      <member cname="WEBKIT_LOAD_COMMITTED" name="Committed" />
+      <member cname="WEBKIT_LOAD_FINISHED" name="Finished" />
+      <member cname="WEBKIT_LOAD_FIRST_VISUALLY_NON_EMPTY_LAYOUT" name="FirstVisuallyNonEmptyLayout" />
+    </enum>
     <enum name="NavigationResponse" cname="WebKitNavigationResponse" type="enum">
       <member cname="WEBKIT_NAVIGATION_RESPONSE_ACCEPT" name="Accept" />
       <member cname="WEBKIT_NAVIGATION_RESPONSE_IGNORE" name="Ignore" />
       <member cname="WEBKIT_NAVIGATION_RESPONSE_DOWNLOAD" name="Download" />
     </enum>
-    <enum name="WebViewTargetInfo" cname="WebKitWebViewTargetInfo" type="enum">
-      <member cname="WEBKIT_WEB_VIEW_TARGET_INFO_HTML" name="Html" value="- 1" />
-      <member cname="WEBKIT_WEB_VIEW_TARGET_INFO_TEXT" name="Text" value="- 2" />
+    <enum name="NetworkError" cname="WebKitNetworkError" type="enum">
+      <member cname="WEBKIT_NETWORK_ERROR_FAILED" name="Failed" value="399" />
+      <member cname="WEBKIT_NETWORK_ERROR_TRANSPORT" name="Transport" value="300" />
+      <member cname="WEBKIT_NETWORK_ERROR_UNKNOWN_PROTOCOL" name="UnknownProtocol" value="301" />
+      <member cname="WEBKIT_NETWORK_ERROR_CANCELLED" name="Cancelled" value="302" />
+      <member cname="WEBKIT_NETWORK_ERROR_FILE_DOES_NOT_EXIST" name="FileDoesNotExist" value="303" />
     </enum>
+    <enum name="PluginError" cname="WebKitPluginError" type="enum">
+      <member cname="WEBKIT_PLUGIN_ERROR_FAILED" name="Failed" value="299" />
+      <member cname="WEBKIT_PLUGIN_ERROR_CANNOT_FIND_PLUGIN" name="CannotFindPlugin" value="200" />
+      <member cname="WEBKIT_PLUGIN_ERROR_CANNOT_LOAD_PLUGIN" name="CannotLoadPlugin" value="201" />
+      <member cname="WEBKIT_PLUGIN_ERROR_JAVA_UNAVAILABLE" name="JavaUnavailable" value="202" />
+      <member cname="WEBKIT_PLUGIN_ERROR_CONNECTION_CANCELLED" name="ConnectionCancelled" value="203" />
+      <member cname="WEBKIT_PLUGIN_ERROR_WILL_HANDLE_LOAD" name="WillHandleLoad" value="204" />
+    </enum>
+    <enum name="PolicyError" cname="WebKitPolicyError" type="enum">
+      <member cname="WEBKIT_POLICY_ERROR_FAILED" name="Failed" value="199" />
+      <member cname="WEBKIT_POLICY_ERROR_CANNOT_SHOW_MIME_TYPE" name="CannotShowMimeType" value="100" />
+      <member cname="WEBKIT_POLICY_ERROR_CANNOT_SHOW_URL" name="CannotShowUrl" value="101" />
+      <member cname="WEBKIT_POLICY_ERROR_FRAME_LOAD_INTERRUPTED_BY_POLICY_CHANGE" name="FrameLoadInterruptedByPolicyChange" value="102" />
+      <member cname="WEBKIT_POLICY_ERROR_CANNOT_USE_RESTRICTED_PORT" name="CannotUseRestrictedPort" value="103" />
+    </enum>
+    <enum name="WebNavigationReason" cname="WebKitWebNavigationReason" type="enum">
+      <member cname="WEBKIT_WEB_NAVIGATION_REASON_LINK_CLICKED" name="LinkClicked" />
+      <member cname="WEBKIT_WEB_NAVIGATION_REASON_FORM_SUBMITTED" name="FormSubmitted" />
+      <member cname="WEBKIT_WEB_NAVIGATION_REASON_BACK_FORWARD" name="BackForward" />
+      <member cname="WEBKIT_WEB_NAVIGATION_REASON_RELOAD" name="Reload" />
+      <member cname="WEBKIT_WEB_NAVIGATION_REASON_FORM_RESUBMITTED" name="FormResubmitted" />
+      <member cname="WEBKIT_WEB_NAVIGATION_REASON_OTHER" name="Other" />
+    </enum>
+    <enum name="WebViewTargetInfo" cname="WebKitWebViewTargetInfo" type="enum">
+      <member cname="WEBKIT_WEB_VIEW_TARGET_INFO_HTML" name="Html" />
+      <member cname="WEBKIT_WEB_VIEW_TARGET_INFO_TEXT" name="Text" />
+      <member cname="WEBKIT_WEB_VIEW_TARGET_INFO_IMAGE" name="Image" />
+      <member cname="WEBKIT_WEB_VIEW_TARGET_INFO_URI_LIST" name="UriList" />
+      <member cname="WEBKIT_WEB_VIEW_TARGET_INFO_NETSCAPE_URL" name="NetscapeUrl" />
+    </enum>
+    <object name="Download" cname="WebKitDownload" parent="GObject">
+      <field name="Priv" cname="priv" type="WebKitDownloadPrivate*" />
+      <method name="Cancel" cname="webkit_download_cancel">
+        <return-type type="void" />
+      </method>
+      <method name="GetCurrentSize" cname="webkit_download_get_current_size">
+        <return-type type="guint64" />
+      </method>
+      <method name="GetDestinationUri" cname="webkit_download_get_destination_uri">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetElapsedTime" cname="webkit_download_get_elapsed_time">
+        <return-type type="gdouble" />
+      </method>
+      <method name="GetNetworkRequest" cname="webkit_download_get_network_request">
+        <return-type type="WebKitNetworkRequest*" />
+      </method>
+      <method name="GetProgress" cname="webkit_download_get_progress">
+        <return-type type="gdouble" />
+      </method>
+      <method name="GetStatus" cname="webkit_download_get_status">
+        <return-type type="WebKitDownloadStatus" />
+      </method>
+      <method name="GetSuggestedFilename" cname="webkit_download_get_suggested_filename">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetTotalSize" cname="webkit_download_get_total_size">
+        <return-type type="guint64" />
+      </method>
+      <method name="GetType" cname="webkit_download_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetUri" cname="webkit_download_get_uri">
+        <return-type type="const-gchar*" />
+      </method>
+      <constructor cname="webkit_download_new">
+        <parameters>
+          <parameter type="WebKitNetworkRequest*" name="request" />
+        </parameters>
+      </constructor>
+      <method name="SetDestinationUri" cname="webkit_download_set_destination_uri">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="destination_uri" />
+        </parameters>
+      </method>
+      <method name="Start" cname="webkit_download_start">
+        <return-type type="void" />
+      </method>
+    </object>
     <object name="NetworkRequest" cname="WebKitNetworkRequest" parent="GObject">
       <field name="Priv" cname="priv" type="WebKitNetworkRequestPrivate*" />
+      <method name="GetMessage" cname="webkit_network_request_get_message">
+        <return-type type="SoupMessage*" />
+      </method>
       <method name="GetType" cname="webkit_network_request_get_type" shared="true">
         <return-type type="GType" />
+      </method>
+      <method name="GetUri" cname="webkit_network_request_get_uri">
+        <return-type type="const-gchar*" />
       </method>
       <constructor cname="webkit_network_request_new">
         <parameters>
@@ -33,8 +144,679 @@
         </parameters>
       </method>
     </object>
-    <object name="WebBackForwardList" cname="WebKitWebBackForwardList" parent="GObject">
-      <field name="Priv" cname="priv" type="WebKitWebBackForwardListPrivate*" />
+    <object name="NetworkResponse" cname="WebKitNetworkResponse" parent="GObject">
+      <field name="Priv" cname="priv" type="WebKitNetworkResponsePrivate*" />
+      <method name="GetMessage" cname="webkit_network_response_get_message">
+        <return-type type="SoupMessage*" />
+      </method>
+      <method name="GetType" cname="webkit_network_response_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetUri" cname="webkit_network_response_get_uri">
+        <return-type type="const-gchar*" />
+      </method>
+      <constructor cname="webkit_network_response_new">
+        <parameters>
+          <parameter type="const-gchar*" name="uri" />
+        </parameters>
+      </constructor>
+      <method name="SetUri" cname="webkit_network_response_set_uri">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="uri" />
+        </parameters>
+      </method>
+    </object>
+    <object name="SecurityOrigin" cname="WebKitSecurityOrigin" parent="GObject">
+      <field name="Priv" cname="priv" type="WebKitSecurityOriginPrivate*" />
+      <method name="GetAllWebDatabases" cname="webkit_security_origin_get_all_web_databases">
+        <return-type type="GList*" />
+      </method>
+      <method name="GetHost" cname="webkit_security_origin_get_host">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetPort" cname="webkit_security_origin_get_port">
+        <return-type type="guint" />
+      </method>
+      <method name="GetProtocol" cname="webkit_security_origin_get_protocol">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetType" cname="webkit_security_origin_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetWebDatabaseQuota" cname="webkit_security_origin_get_web_database_quota">
+        <return-type type="guint64" />
+      </method>
+      <method name="GetWebDatabaseUsage" cname="webkit_security_origin_get_web_database_usage">
+        <return-type type="guint64" />
+      </method>
+      <method name="SetWebDatabaseQuota" cname="webkit_security_origin_set_web_database_quota">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint64" name="quota" />
+        </parameters>
+      </method>
+    </object>
+    <object name="SoupAuthDialog" cname="WebKitSoupAuthDialog" parent="GObject" />
+    <object name="WebDatabase" cname="WebKitWebDatabase" parent="GObject">
+      <field name="Priv" cname="priv" type="WebKitWebDatabasePrivate*" />
+      <method name="GetDisplayName" cname="webkit_web_database_get_display_name">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetExpectedSize" cname="webkit_web_database_get_expected_size">
+        <return-type type="guint64" />
+      </method>
+      <method name="GetFilename" cname="webkit_web_database_get_filename">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetName" cname="webkit_web_database_get_name">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetSecurityOrigin" cname="webkit_web_database_get_security_origin">
+        <return-type type="WebKitSecurityOrigin*" />
+      </method>
+      <method name="GetSize" cname="webkit_web_database_get_size">
+        <return-type type="guint64" />
+      </method>
+      <method name="GetType" cname="webkit_web_database_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="Remove" cname="webkit_web_database_remove">
+        <return-type type="void" />
+      </method>
+    </object>
+    <object name="WebDataSource" cname="WebKitWebDataSource" parent="GObject">
+      <field name="Priv" cname="priv" type="WebKitWebDataSourcePrivate*" />
+      <method name="GetData" cname="webkit_web_data_source_get_data">
+        <return-type type="GString*" />
+      </method>
+      <method name="GetEncoding" cname="webkit_web_data_source_get_encoding">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetInitialRequest" cname="webkit_web_data_source_get_initial_request">
+        <return-type type="WebKitNetworkRequest*" />
+      </method>
+      <method name="GetMainResource" cname="webkit_web_data_source_get_main_resource">
+        <return-type type="WebKitWebResource*" />
+      </method>
+      <method name="GetRequest" cname="webkit_web_data_source_get_request">
+        <return-type type="WebKitNetworkRequest*" />
+      </method>
+      <method name="GetSubresources" cname="webkit_web_data_source_get_subresources">
+        <return-type type="GList*" />
+      </method>
+      <method name="GetType" cname="webkit_web_data_source_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetUnreachableUri" cname="webkit_web_data_source_get_unreachable_uri">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetWebFrame" cname="webkit_web_data_source_get_web_frame">
+        <return-type type="WebKitWebFrame*" />
+      </method>
+      <method name="IsLoading" cname="webkit_web_data_source_is_loading">
+        <return-type type="gboolean" />
+      </method>
+      <constructor cname="webkit_web_data_source_new" />
+      <constructor cname="webkit_web_data_source_new_with_request">
+        <parameters>
+          <parameter type="WebKitNetworkRequest*" name="request" />
+        </parameters>
+      </constructor>
+    </object>
+    <object name="WebFrame" cname="WebKitWebFrame" parent="GObject">
+      <field name="Priv" cname="priv" type="WebKitWebFramePrivate*" />
+      <method name="FindFrame" cname="webkit_web_frame_find_frame">
+        <return-type type="WebKitWebFrame*" />
+        <parameters>
+          <parameter type="const-gchar*" name="name" />
+        </parameters>
+      </method>
+      <method name="GetDataSource" cname="webkit_web_frame_get_data_source">
+        <return-type type="WebKitWebDataSource*" />
+      </method>
+      <method name="GetGlobalContext" cname="webkit_web_frame_get_global_context">
+        <return-type type="JSGlobalContextRef" />
+      </method>
+      <method name="GetHorizontalScrollbarPolicy" cname="webkit_web_frame_get_horizontal_scrollbar_policy">
+        <return-type type="GtkPolicyType" />
+      </method>
+      <method name="GetLoadStatus" cname="webkit_web_frame_get_load_status">
+        <return-type type="WebKitLoadStatus" />
+      </method>
+      <method name="GetName" cname="webkit_web_frame_get_name">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetParent" cname="webkit_web_frame_get_parent">
+        <return-type type="WebKitWebFrame*" />
+      </method>
+      <method name="GetProvisionalDataSource" cname="webkit_web_frame_get_provisional_data_source">
+        <return-type type="WebKitWebDataSource*" />
+      </method>
+      <method name="GetSecurityOrigin" cname="webkit_web_frame_get_security_origin">
+        <return-type type="WebKitSecurityOrigin*" />
+      </method>
+      <method name="GetTitle" cname="webkit_web_frame_get_title">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetType" cname="webkit_web_frame_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetUri" cname="webkit_web_frame_get_uri">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetVerticalScrollbarPolicy" cname="webkit_web_frame_get_vertical_scrollbar_policy">
+        <return-type type="GtkPolicyType" />
+      </method>
+      <method name="GetWebView" cname="webkit_web_frame_get_web_view">
+        <return-type type="WebKitWebView*" />
+      </method>
+      <method name="LoadAlternateString" cname="webkit_web_frame_load_alternate_string">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="content" />
+          <parameter type="const-gchar*" name="base_url" />
+          <parameter type="const-gchar*" name="unreachable_url" />
+        </parameters>
+      </method>
+      <method name="LoadRequest" cname="webkit_web_frame_load_request">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="WebKitNetworkRequest*" name="request" />
+        </parameters>
+      </method>
+      <method name="LoadString" cname="webkit_web_frame_load_string">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="content" />
+          <parameter type="const-gchar*" name="mime_type" />
+          <parameter type="const-gchar*" name="encoding" />
+          <parameter type="const-gchar*" name="base_uri" />
+        </parameters>
+      </method>
+      <method name="LoadUri" cname="webkit_web_frame_load_uri">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="uri" />
+        </parameters>
+      </method>
+      <constructor cname="webkit_web_frame_new" deprecated="1">
+        <parameters>
+          <parameter type="WebKitWebView*" name="web_view" />
+        </parameters>
+      </constructor>
+      <method name="Print" cname="webkit_web_frame_print">
+        <return-type type="void" />
+      </method>
+      <method name="PrintFull" cname="webkit_web_frame_print_full">
+        <return-type type="GtkPrintOperationResult" />
+        <parameters>
+          <parameter type="GtkPrintOperation*" name="operation" />
+          <parameter type="GtkPrintOperationAction" name="action" />
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
+      <method name="Reload" cname="webkit_web_frame_reload">
+        <return-type type="void" />
+      </method>
+      <method name="StopLoading" cname="webkit_web_frame_stop_loading">
+        <return-type type="void" />
+      </method>
+    </object>
+    <object name="WebHistoryItem" cname="WebKitWebHistoryItem" parent="GObject">
+      <field name="Priv" cname="priv" type="WebKitWebHistoryItemPrivate*" />
+      <method name="GetAlternateTitle" cname="webkit_web_history_item_get_alternate_title">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetLastVisitedTime" cname="webkit_web_history_item_get_last_visited_time">
+        <return-type type="gdouble" />
+      </method>
+      <method name="GetOriginalUri" cname="webkit_web_history_item_get_original_uri">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetTitle" cname="webkit_web_history_item_get_title">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetType" cname="webkit_web_history_item_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetUri" cname="webkit_web_history_item_get_uri">
+        <return-type type="const-gchar*" />
+      </method>
+      <constructor cname="webkit_web_history_item_new" />
+      <constructor cname="webkit_web_history_item_new_with_data">
+        <parameters>
+          <parameter type="const-gchar*" name="uri" />
+          <parameter type="const-gchar*" name="title" />
+        </parameters>
+      </constructor>
+      <method name="SetAlternateTitle" cname="webkit_web_history_item_set_alternate_title">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="title" />
+        </parameters>
+      </method>
+    </object>
+    <object name="WebInspector" cname="WebKitWebInspector" parent="GObject">
+      <field name="Priv" cname="priv" type="WebKitWebInspectorPrivate*" />
+      <method name="GetInspectedUri" cname="webkit_web_inspector_get_inspected_uri">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetType" cname="webkit_web_inspector_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetWebView" cname="webkit_web_inspector_get_web_view">
+        <return-type type="WebKitWebView*" />
+      </method>
+    </object>
+    <object name="WebNavigationAction" cname="WebKitWebNavigationAction" parent="GObject">
+      <field name="Priv" cname="priv" type="WebKitWebNavigationActionPrivate*" />
+      <method name="GetButton" cname="webkit_web_navigation_action_get_button">
+        <return-type type="gint" />
+      </method>
+      <method name="GetModifierState" cname="webkit_web_navigation_action_get_modifier_state">
+        <return-type type="gint" />
+      </method>
+      <method name="GetOriginalUri" cname="webkit_web_navigation_action_get_original_uri">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetReason" cname="webkit_web_navigation_action_get_reason">
+        <return-type type="WebKitWebNavigationReason" />
+      </method>
+      <method name="GetTargetFrame" cname="webkit_web_navigation_action_get_target_frame">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetType" cname="webkit_web_navigation_action_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="SetOriginalUri" cname="webkit_web_navigation_action_set_original_uri">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="originalUri" />
+        </parameters>
+      </method>
+      <method name="SetReason" cname="webkit_web_navigation_action_set_reason">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="WebKitWebNavigationReason" name="reason" />
+        </parameters>
+      </method>
+    </object>
+    <object name="WebPolicyDecision" cname="WebKitWebPolicyDecision" parent="GObject">
+      <field name="Priv" cname="priv" type="WebKitWebPolicyDecisionPrivate*" />
+      <method name="Download" cname="webkit_web_policy_decision_download">
+        <return-type type="void" />
+      </method>
+      <method name="GetType" cname="webkit_web_policy_decision_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="Ignore" cname="webkit_web_policy_decision_ignore">
+        <return-type type="void" />
+      </method>
+      <method name="Use" cname="webkit_web_policy_decision_use">
+        <return-type type="void" />
+      </method>
+    </object>
+    <object name="WebResource" cname="WebKitWebResource" parent="GObject">
+      <field name="Priv" cname="priv" type="WebKitWebResourcePrivate*" />
+      <method name="GetData" cname="webkit_web_resource_get_data">
+        <return-type type="GString*" />
+      </method>
+      <method name="GetEncoding" cname="webkit_web_resource_get_encoding">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetFrameName" cname="webkit_web_resource_get_frame_name">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetMimeType" cname="webkit_web_resource_get_mime_type">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetType" cname="webkit_web_resource_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetUri" cname="webkit_web_resource_get_uri">
+        <return-type type="const-gchar*" />
+      </method>
+      <constructor cname="webkit_web_resource_new">
+        <parameters>
+          <parameter type="const-gchar*" name="data" />
+          <parameter type="gssize" name="size" />
+          <parameter type="const-gchar*" name="uri" />
+          <parameter type="const-gchar*" name="mime_type" />
+          <parameter type="const-gchar*" name="encoding" />
+          <parameter type="const-gchar*" name="frame_name" />
+        </parameters>
+      </constructor>
+    </object>
+    <object name="WebSettings" cname="WebKitWebSettings" parent="GObject">
+      <field name="Priv" cname="priv" type="WebKitWebSettingsPrivate*" />
+      <method name="Copy" cname="webkit_web_settings_copy">
+        <return-type type="WebKitWebSettings*" owned="true" />
+      </method>
+      <method name="GetType" cname="webkit_web_settings_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetUserAgent" cname="webkit_web_settings_get_user_agent">
+        <return-type type="const-gchar*" />
+      </method>
+      <constructor cname="webkit_web_settings_new" />
+    </object>
+    <object name="WebView" cname="WebKitWebView" parent="GtkContainer">
+      <field name="Priv" cname="priv" type="WebKitWebViewPrivate*" />
+      <method name="CanCopyClipboard" cname="webkit_web_view_can_copy_clipboard">
+        <return-type type="gboolean" />
+      </method>
+      <method name="CanCutClipboard" cname="webkit_web_view_can_cut_clipboard">
+        <return-type type="gboolean" />
+      </method>
+      <method name="CanGoBack" cname="webkit_web_view_can_go_back">
+        <return-type type="gboolean" />
+      </method>
+      <method name="CanGoBackOrForward" cname="webkit_web_view_can_go_back_or_forward">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="gint" name="steps" />
+        </parameters>
+      </method>
+      <method name="CanGoForward" cname="webkit_web_view_can_go_forward">
+        <return-type type="gboolean" />
+      </method>
+      <method name="CanPasteClipboard" cname="webkit_web_view_can_paste_clipboard">
+        <return-type type="gboolean" />
+      </method>
+      <method name="CanRedo" cname="webkit_web_view_can_redo">
+        <return-type type="gboolean" />
+      </method>
+      <method name="CanShowMimeType" cname="webkit_web_view_can_show_mime_type">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-gchar*" name="mime_type" />
+        </parameters>
+      </method>
+      <method name="CanUndo" cname="webkit_web_view_can_undo">
+        <return-type type="gboolean" />
+      </method>
+      <method name="CopyClipboard" cname="webkit_web_view_copy_clipboard">
+        <return-type type="void" />
+      </method>
+      <method name="CutClipboard" cname="webkit_web_view_cut_clipboard">
+        <return-type type="void" />
+      </method>
+      <method name="DeleteSelection" cname="webkit_web_view_delete_selection">
+        <return-type type="void" />
+      </method>
+      <method name="ExecuteScript" cname="webkit_web_view_execute_script">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="script" />
+        </parameters>
+      </method>
+      <method name="GetBackForwardList" cname="webkit_web_view_get_back_forward_list">
+        <return-type type="WebKitWebBackForwardList*" />
+      </method>
+      <method name="GetCopyTargetList" cname="webkit_web_view_get_copy_target_list">
+        <return-type type="GtkTargetList*" />
+      </method>
+      <method name="GetCustomEncoding" cname="webkit_web_view_get_custom_encoding">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetEditable" cname="webkit_web_view_get_editable">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetEncoding" cname="webkit_web_view_get_encoding">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetFocusedFrame" cname="webkit_web_view_get_focused_frame">
+        <return-type type="WebKitWebFrame*" />
+      </method>
+      <method name="GetFullContentZoom" cname="webkit_web_view_get_full_content_zoom">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetHitTestResult" cname="webkit_web_view_get_hit_test_result">
+        <return-type type="WebKitHitTestResult*" />
+        <parameters>
+          <parameter type="GdkEventButton*" name="event" />
+        </parameters>
+      </method>
+      <method name="GetInspector" cname="webkit_web_view_get_inspector">
+        <return-type type="WebKitWebInspector*" />
+      </method>
+      <method name="GetLoadStatus" cname="webkit_web_view_get_load_status">
+        <return-type type="WebKitLoadStatus" />
+      </method>
+      <method name="GetMainFrame" cname="webkit_web_view_get_main_frame">
+        <return-type type="WebKitWebFrame*" />
+      </method>
+      <method name="GetPasteTargetList" cname="webkit_web_view_get_paste_target_list">
+        <return-type type="GtkTargetList*" />
+      </method>
+      <method name="GetProgress" cname="webkit_web_view_get_progress">
+        <return-type type="gdouble" />
+      </method>
+      <method name="GetSettings" cname="webkit_web_view_get_settings">
+        <return-type type="WebKitWebSettings*" />
+      </method>
+      <method name="GetTitle" cname="webkit_web_view_get_title">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetTransparent" cname="webkit_web_view_get_transparent">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetType" cname="webkit_web_view_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetUri" cname="webkit_web_view_get_uri">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetViewSourceMode" cname="webkit_web_view_get_view_source_mode">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetWindowFeatures" cname="webkit_web_view_get_window_features">
+        <return-type type="WebKitWebWindowFeatures*" />
+      </method>
+      <method name="GetZoomLevel" cname="webkit_web_view_get_zoom_level">
+        <return-type type="gfloat" />
+      </method>
+      <method name="GoBack" cname="webkit_web_view_go_back">
+        <return-type type="void" />
+      </method>
+      <method name="GoBackOrForward" cname="webkit_web_view_go_back_or_forward">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="steps" />
+        </parameters>
+      </method>
+      <method name="GoForward" cname="webkit_web_view_go_forward">
+        <return-type type="void" />
+      </method>
+      <method name="GoToBackForwardItem" cname="webkit_web_view_go_to_back_forward_item">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="WebKitWebHistoryItem*" name="item" />
+        </parameters>
+      </method>
+      <method name="HasSelection" cname="webkit_web_view_has_selection">
+        <return-type type="gboolean" />
+      </method>
+      <method name="LoadHtmlString" cname="webkit_web_view_load_html_string">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="content" />
+          <parameter type="const-gchar*" name="base_uri" />
+        </parameters>
+      </method>
+      <method name="LoadRequest" cname="webkit_web_view_load_request">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="WebKitNetworkRequest*" name="request" />
+        </parameters>
+      </method>
+      <method name="LoadString" cname="webkit_web_view_load_string">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="content" />
+          <parameter type="const-gchar*" name="mime_type" />
+          <parameter type="const-gchar*" name="encoding" />
+          <parameter type="const-gchar*" name="base_uri" />
+        </parameters>
+      </method>
+      <method name="LoadUri" cname="webkit_web_view_load_uri">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="uri" />
+        </parameters>
+      </method>
+      <method name="MarkTextMatches" cname="webkit_web_view_mark_text_matches">
+        <return-type type="guint" />
+        <parameters>
+          <parameter type="const-gchar*" name="string" />
+          <parameter type="gboolean" name="case_sensitive" />
+          <parameter type="guint" name="limit" />
+        </parameters>
+      </method>
+      <method name="MoveCursor" cname="webkit_web_view_move_cursor">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GtkMovementStep" name="step" />
+          <parameter type="gint" name="count" />
+        </parameters>
+      </method>
+      <constructor cname="webkit_web_view_new" />
+      <method name="Open" cname="webkit_web_view_open">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="uri" />
+        </parameters>
+      </method>
+      <method name="PasteClipboard" cname="webkit_web_view_paste_clipboard">
+        <return-type type="void" />
+      </method>
+      <method name="Redo" cname="webkit_web_view_redo">
+        <return-type type="void" />
+      </method>
+      <method name="Reload" cname="webkit_web_view_reload">
+        <return-type type="void" />
+      </method>
+      <method name="ReloadBypassCache" cname="webkit_web_view_reload_bypass_cache">
+        <return-type type="void" />
+      </method>
+      <method name="SearchText" cname="webkit_web_view_search_text">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-gchar*" name="text" />
+          <parameter type="gboolean" name="case_sensitive" />
+          <parameter type="gboolean" name="forward" />
+          <parameter type="gboolean" name="wrap" />
+        </parameters>
+      </method>
+      <method name="SelectAll" cname="webkit_web_view_select_all">
+        <return-type type="void" />
+      </method>
+      <method name="SetCustomEncoding" cname="webkit_web_view_set_custom_encoding">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="encoding" />
+        </parameters>
+      </method>
+      <method name="SetEditable" cname="webkit_web_view_set_editable">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="flag" />
+        </parameters>
+      </method>
+      <method name="SetFullContentZoom" cname="webkit_web_view_set_full_content_zoom">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="full_content_zoom" />
+        </parameters>
+      </method>
+      <method name="SetHighlightTextMatches" cname="webkit_web_view_set_highlight_text_matches">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="highlight" />
+        </parameters>
+      </method>
+      <method name="SetMaintainsBackForwardList" cname="webkit_web_view_set_maintains_back_forward_list">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="flag" />
+        </parameters>
+      </method>
+      <method name="SetSettings" cname="webkit_web_view_set_settings">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="WebKitWebSettings*" name="settings" />
+        </parameters>
+      </method>
+      <method name="SetTransparent" cname="webkit_web_view_set_transparent">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="flag" />
+        </parameters>
+      </method>
+      <method name="SetViewSourceMode" cname="webkit_web_view_set_view_source_mode">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="view_source_mode" />
+        </parameters>
+      </method>
+      <method name="SetZoomLevel" cname="webkit_web_view_set_zoom_level">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gfloat" name="zoom_level" />
+        </parameters>
+      </method>
+      <method name="StopLoading" cname="webkit_web_view_stop_loading">
+        <return-type type="void" />
+      </method>
+      <method name="Undo" cname="webkit_web_view_undo">
+        <return-type type="void" />
+      </method>
+      <method name="UnmarkTextMatches" cname="webkit_web_view_unmark_text_matches">
+        <return-type type="void" />
+      </method>
+      <method name="ZoomIn" cname="webkit_web_view_zoom_in">
+        <return-type type="void" />
+      </method>
+      <method name="ZoomOut" cname="webkit_web_view_zoom_out">
+        <return-type type="void" />
+      </method>
+    </object>
+    <object name="WebWindowFeatures" cname="WebKitWebWindowFeatures" parent="GObject">
+      <field name="Priv" cname="priv" type="WebKitWebWindowFeaturesPrivate*" />
+      <method name="Equal" cname="webkit_web_window_features_equal">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="WebKitWebWindowFeatures*" name="features2" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="webkit_web_window_features_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="webkit_web_window_features_new" />
+    </object>
+    <struct name="HitTestResult" cname="WebKitHitTestResult" opaque="true">
+      <method name="ContextGetType" cname="webkit_hit_test_result_context_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </struct>
+    <struct name="HitTestResultClass" cname="WebKitHitTestResultClass" opaque="true" />
+    <struct name="SoupAuthDialogClass" cname="WebKitSoupAuthDialogClass">
+      <field name="ParentClass" cname="parent_class" type="GObjectClass" />
+      <callback cname="current_toplevel">
+        <return-type type="GtkWidget*" />
+        <parameters>
+          <parameter type="WebKitSoupAuthDialog*" name="feature," />
+        </parameters>
+      </callback>
+    </struct>
+    <struct name="WebBackForwardList" cname="WebKitWebBackForwardList" opaque="true">
+      <method name="AddItem" cname="webkit_web_back_forward_list_add_item">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="WebKitWebHistoryItem*" name="history_item" />
+        </parameters>
+      </method>
       <method name="ContainsItem" cname="webkit_web_back_forward_list_contains_item">
         <return-type type="gboolean" />
         <parameters>
@@ -103,248 +885,68 @@
           <parameter type="gint" name="limit" />
         </parameters>
       </method>
-    </object>
-    <object name="WebFrame" cname="WebKitWebFrame" parent="GObject">
-      <field name="Priv" cname="priv" type="WebKitWebFramePrivate*" />
-      <method name="FindFrame" cname="webkit_web_frame_find_frame">
-        <return-type type="WebKitWebFrame*" />
-        <parameters>
-          <parameter type="const-gchar*" name="name" />
-        </parameters>
-      </method>
-      <method name="GetGlobalContext" cname="webkit_web_frame_get_global_context">
-        <return-type type="JSGlobalContextRef" />
-      </method>
-      <method name="GetParent" cname="webkit_web_frame_get_parent">
-        <return-type type="WebKitWebFrame*" />
-      </method>
-      <method name="GetType" cname="webkit_web_frame_get_type" shared="true">
-        <return-type type="GType" />
-      </method>
-      <method name="GetWebView" cname="webkit_web_frame_get_web_view">
-        <return-type type="WebKitWebView*" />
-      </method>
-      <method name="LoadRequest" cname="webkit_web_frame_load_request">
+    </struct>
+    <struct name="WebBackForwardListClass" cname="WebKitWebBackForwardListClass">
+      <field name="ParentClass" cname="parent_class" type="GObjectClass" />
+      <callback cname="_webkit_reserved0">
         <return-type type="void" />
         <parameters>
-          <parameter type="WebKitNetworkRequest*" name="request" />
+          <parameter type="void" name="arg1" />
         </parameters>
-      </method>
-      <constructor cname="webkit_web_frame_new">
-        <parameters>
-          <parameter type="WebKitWebView*" name="web_view" />
-        </parameters>
-      </constructor>
-      <method name="Reload" cname="webkit_web_frame_reload">
-        <return-type type="void" />
-      </method>
-      <method name="StopLoading" cname="webkit_web_frame_stop_loading">
-        <return-type type="void" />
-      </method>
-    </object>
-    <object name="WebHistoryItem" cname="WebKitWebHistoryItem" parent="GObject">
-      <field name="Priv" cname="priv" type="WebKitWebHistoryItemPrivate*" />
-      <method name="GetLastVisitedTime" cname="webkit_web_history_item_get_last_visited_time">
-        <return-type type="gdouble" />
-      </method>
-      <method name="GetType" cname="webkit_web_history_item_get_type" shared="true">
-        <return-type type="GType" />
-      </method>
-      <constructor cname="webkit_web_history_item_new" />
-      <constructor cname="webkit_web_history_item_new_with_data">
-        <parameters>
-          <parameter type="const-gchar*" name="uri" />
-          <parameter type="const-gchar*" name="title" />
-        </parameters>
-      </constructor>
-      <method name="SetAlternateTitle" cname="webkit_web_history_item_set_alternate_title">
+      </callback>
+      <callback cname="_webkit_reserved1">
         <return-type type="void" />
         <parameters>
-          <parameter type="const-gchar*" name="title" />
+          <parameter type="void" name="arg1" />
         </parameters>
-      </method>
-    </object>
-    <object name="WebSettings" cname="WebKitWebSettings" parent="GObject">
-      <field name="Priv" cname="priv" type="WebKitWebSettingsPrivate*" />
-      <method name="Copy" cname="webkit_web_settings_copy">
-        <return-type type="WebKitWebSettings*" owned="true" />
-      </method>
-      <method name="GetType" cname="webkit_web_settings_get_type" shared="true">
-        <return-type type="GType" />
-      </method>
-      <constructor cname="webkit_web_settings_new" />
-    </object>
-    <object name="WebView" cname="WebKitWebView" parent="GtkContainer">
-      <field name="Priv" cname="priv" type="WebKitWebViewPrivate*" />
-      <method name="CanCopyClipboard" cname="webkit_web_view_can_copy_clipboard">
-        <return-type type="gboolean" />
-      </method>
-      <method name="CanCutClipboard" cname="webkit_web_view_can_cut_clipboard">
-        <return-type type="gboolean" />
-      </method>
-      <method name="CanGoBack" cname="webkit_web_view_can_go_back">
-        <return-type type="gboolean" />
-      </method>
-      <method name="CanGoBackOrForward" cname="webkit_web_view_can_go_back_or_forward">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="gint" name="steps" />
-        </parameters>
-      </method>
-      <method name="CanGoForward" cname="webkit_web_view_can_go_forward">
-        <return-type type="gboolean" />
-      </method>
-      <method name="CanPasteClipboard" cname="webkit_web_view_can_paste_clipboard">
-        <return-type type="gboolean" />
-      </method>
-      <method name="CopyClipboard" cname="webkit_web_view_copy_clipboard">
-        <return-type type="void" />
-      </method>
-      <method name="CutClipboard" cname="webkit_web_view_cut_clipboard">
-        <return-type type="void" />
-      </method>
-      <method name="DeleteSelection" cname="webkit_web_view_delete_selection">
-        <return-type type="void" />
-      </method>
-      <method name="ExecuteScript" cname="webkit_web_view_execute_script">
+      </callback>
+      <callback cname="_webkit_reserved2">
         <return-type type="void" />
         <parameters>
-          <parameter type="const-gchar*" name="script" />
+          <parameter type="void" name="arg1" />
         </parameters>
-      </method>
-      <method name="GetBackForwardList" cname="webkit_web_view_get_back_forward_list">
-        <return-type type="WebKitWebBackForwardList*" />
-      </method>
-      <method name="GetCopyTargetList" cname="webkit_web_view_get_copy_target_list">
-        <return-type type="GtkTargetList*" />
-      </method>
-      <method name="GetEditable" cname="webkit_web_view_get_editable">
-        <return-type type="gboolean" />
-      </method>
-      <method name="GetFocusedFrame" cname="webkit_web_view_get_focused_frame">
-        <return-type type="WebKitWebFrame*" />
-      </method>
-      <method name="GetMainFrame" cname="webkit_web_view_get_main_frame">
-        <return-type type="WebKitWebFrame*" />
-      </method>
-      <method name="GetPasteTargetList" cname="webkit_web_view_get_paste_target_list">
-        <return-type type="GtkTargetList*" />
-      </method>
-      <method name="GetSettings" cname="webkit_web_view_get_settings">
-        <return-type type="WebKitWebSettings*" />
-      </method>
-      <method name="GetTransparent" cname="webkit_web_view_get_transparent">
-        <return-type type="gboolean" />
-      </method>
-      <method name="GetType" cname="webkit_web_view_get_type" shared="true">
-        <return-type type="GType" />
-      </method>
-      <method name="GoBack" cname="webkit_web_view_go_back">
-        <return-type type="void" />
-      </method>
-      <method name="GoBackOrForward" cname="webkit_web_view_go_back_or_forward">
+      </callback>
+      <callback cname="_webkit_reserved3">
         <return-type type="void" />
         <parameters>
-          <parameter type="gint" name="steps" />
+          <parameter type="void" name="arg1" />
         </parameters>
+      </callback>
+    </struct>
+    <class name="Global" cname="WebKitGlobal">
+      <method name="GetDefaultSession" cname="webkit_get_default_session" shared="true">
+        <return-type type="SoupSession*" />
       </method>
-      <method name="GoForward" cname="webkit_web_view_go_forward">
+      <method name="GetDefaultWebDatabaseQuota" cname="webkit_get_default_web_database_quota" shared="true">
+        <return-type type="guint64" />
+      </method>
+      <method name="GetWebDatabaseDirectoryPath" cname="webkit_get_web_database_directory_path" shared="true">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="NetworkErrorQuark" cname="webkit_network_error_quark" shared="true">
+        <return-type type="GQuark" />
+      </method>
+      <method name="PluginErrorQuark" cname="webkit_plugin_error_quark" shared="true">
+        <return-type type="GQuark" />
+      </method>
+      <method name="PolicyErrorQuark" cname="webkit_policy_error_quark" shared="true">
+        <return-type type="GQuark" />
+      </method>
+      <method name="RemoveAllWebDatabases" cname="webkit_remove_all_web_databases" shared="true">
         <return-type type="void" />
       </method>
-      <method name="GoToBackForwardItem" cname="webkit_web_view_go_to_back_forward_item">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="WebKitWebHistoryItem*" name="item" />
-        </parameters>
-      </method>
-      <method name="HasSelection" cname="webkit_web_view_has_selection">
-        <return-type type="gboolean" />
-      </method>
-      <method name="LoadHtmlString" cname="webkit_web_view_load_html_string">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="const-gchar*" name="content" />
-          <parameter type="const-gchar*" name="base_uri" />
-        </parameters>
-      </method>
-      <method name="LoadString" cname="webkit_web_view_load_string">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="const-gchar*" name="content" />
-          <parameter type="const-gchar*" name="content_mime_type" />
-          <parameter type="const-gchar*" name="content_encoding" />
-          <parameter type="const-gchar*" name="base_uri" />
-        </parameters>
-      </method>
-      <method name="MarkTextMatches" cname="webkit_web_view_mark_text_matches">
-        <return-type type="guint" />
-        <parameters>
-          <parameter type="const-gchar*" name="string" />
-          <parameter type="gboolean" name="case_sensitive" />
-          <parameter type="guint" name="limit" />
-        </parameters>
-      </method>
-      <constructor cname="webkit_web_view_new" />
-      <method name="Open" cname="webkit_web_view_open">
+      <method name="SetDefaultWebDatabaseQuota" cname="webkit_set_default_web_database_quota" shared="true">
         <return-type type="void" />
         <parameters>
-          <parameter type="const-gchar*" name="uri" />
+          <parameter type="guint64" name="defaultQuota" />
         </parameters>
       </method>
-      <method name="PasteClipboard" cname="webkit_web_view_paste_clipboard">
-        <return-type type="void" />
-      </method>
-      <method name="Reload" cname="webkit_web_view_reload">
-        <return-type type="void" />
-      </method>
-      <method name="SearchText" cname="webkit_web_view_search_text">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="const-gchar*" name="string" />
-          <parameter type="gboolean" name="case_sensitive" />
-          <parameter type="gboolean" name="forward" />
-          <parameter type="gboolean" name="wrap" />
-        </parameters>
-      </method>
-      <method name="SelectAll" cname="webkit_web_view_select_all">
-        <return-type type="void" />
-      </method>
-      <method name="SetEditable" cname="webkit_web_view_set_editable">
+      <method name="SetWebDatabaseDirectoryPath" cname="webkit_set_web_database_directory_path" shared="true">
         <return-type type="void" />
         <parameters>
-          <parameter type="gboolean" name="flag" />
+          <parameter type="const-gchar*" name="path" />
         </parameters>
       </method>
-      <method name="SetHighlightTextMatches" cname="webkit_web_view_set_highlight_text_matches">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gboolean" name="highlight" />
-        </parameters>
-      </method>
-      <method name="SetMaintainsBackForwardList" cname="webkit_web_view_set_maintains_back_forward_list">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gboolean" name="flag" />
-        </parameters>
-      </method>
-      <method name="SetSettings" cname="webkit_web_view_set_settings">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="WebKitWebSettings*" name="settings" />
-        </parameters>
-      </method>
-      <method name="SetTransparent" cname="webkit_web_view_set_transparent">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gboolean" name="flag" />
-        </parameters>
-      </method>
-      <method name="StopLoading" cname="webkit_web_view_stop_loading">
-        <return-type type="void" />
-      </method>
-      <method name="UnmarkTextMatches" cname="webkit_web_view_unmark_text_matches">
-        <return-type type="void" />
-      </method>
-    </object>
+    </class>
   </namespace>
 </api>
