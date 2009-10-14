@@ -1,3 +1,7 @@
+2009-10-13  Andreia Gaita <shana@jitted.com>
+
+	* sources/webkit-sharp.dll.config.in: bump lib version to 2
+
 2009-10-08  Andreia Gaita <shana@jitted.com>
 
 	* configure.ac, webkit-sharp.spec.in: version bump
