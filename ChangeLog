@@ -1,3 +1,7 @@
+2009-10-14  Andreia Gaita <shana@jitted.com>
+
+	* sources/webkit-sharp.metadata: Add missing signal
+
 2009-10-13  Andreia Gaita <shana@jitted.com>
 
 	* configure.ac: adjust version to match target webkit

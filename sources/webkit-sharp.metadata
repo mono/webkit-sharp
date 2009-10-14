@@ -5,6 +5,15 @@
 	<!-- Add missing signal in WebView -->
 	<add-node path="/api/namespace/object[@cname='WebKitWebView']">
 
+		<signal name="NavigationRequested" cname="navigation-requested" when="LAST">
+			<return-type type="gint" />
+			<parameters>
+				<parameter type="WebKitWebView*" name="webview" />
+				<parameter type="WebKitWebFrame*" name="frame" />
+				<parameter type="WebKitNetworkRequest" name="request" />
+			</parameters>
+		</signal>
+
 		<signal name="WindowObjectCleared" cname="window-object-cleared" when="LAST">
 			<return-type type="void" />
 			<parameters>
