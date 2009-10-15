@@ -1,7 +1,7 @@
-AC_INIT
+AC_INIT([webkit-sharp], [0.3])
 AC_CONFIG_SRCDIR([README])
 AC_CANONICAL_TARGET
-AM_INIT_AUTOMAKE(webkit-sharp, 0.4)
+AM_INIT_AUTOMAKE
 AM_MAINTAINER_MODE
 AC_PROG_INSTALL
 
@@ -93,7 +93,7 @@ gtksharp_prefix=`pkg-config --variable=prefix gtk-sharp-2.0`
 AC_SUBST(gtksharp_prefix)
 
 dnl Check for WebKit
-PKG_CHECK_MODULES(WEBKIT, webkit-1.0 >= 0.1)
+PKG_CHECK_MODULES(WEBKIT, webkit-1.0 >= 1.1.15)
 AC_SUBST(WEBKIT_LIBS)
 webkit_prefix=`pkg-config --variable=prefix webkit-1.0`
 AC_SUBST(webkit_prefix)
